@@ -8,6 +8,8 @@ WIFI_SSID = "ssid"
 WIFI_PASSWORD = "password"
 MQTT_BROKER = "broker"
 MQTT_TOPIC = "topic"
+MQTT_USER = "user"
+MQTT_PASSWORD = "pass"
 
 # Set up UART
 uart = UART(0, baudrate=9600, tx=Pin(0), rx=Pin(1))
@@ -25,7 +27,7 @@ def connect_wifi():
 
 # Set up MQTT
 def connect_mqtt():
-    client = MQTTClient("barcode_scanner", MQTT_BROKER)
+    client = MQTTClient("barcode scanner", MQTT_BROKER, user=MQTT_USER, password=MQTT_PASSWORD)
     client.connect()
     print("Connected to MQTT Broker")
     return client
